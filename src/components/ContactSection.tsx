@@ -56,7 +56,7 @@ const ContactSection = () => {
             setForm({ name: "", email: "", message: "" });
             setIsSubmitting(false);
           },
-          (error) => {
+          (error: { text?: string; message?: string }) => {
             console.error('FAILED...', error);
             const errorMsg = error?.text || error?.message || "Unknown error";
             toast.error(`Failed to send message: ${errorMsg}`);
