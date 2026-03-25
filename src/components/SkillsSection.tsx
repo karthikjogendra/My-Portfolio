@@ -1,95 +1,96 @@
 import { motion } from "framer-motion";
-import { BarChart3, FileSpreadsheet, Database, Code2, Cpu, Coffee, Binary, BrainCircuit, LineChart, Lightbulb } from "lucide-react";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.12 } },
-};
-const item = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } },
-};
 
 const categories = [
   {
-    title: "Frontend / Tools",
+    title: "LANGUAGES",
     skills: [
-      { name: "Power BI", icon: BarChart3 },
-      { name: "Excel", icon: FileSpreadsheet },
-      { name: "Big Data", icon: Database },
+      { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+      { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+      { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+      { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
     ],
   },
   {
-    title: "Programming Languages",
+    title: "FRAMEWORKS & LIBRARIES",
     skills: [
-      { name: "C", icon: Code2 },
-      { name: "C++", icon: Cpu },
-      { name: "Java", icon: Coffee },
-      { name: "Python", icon: Binary },
+      { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "React.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
+      { name: "Django", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
+      { name: "Streamlit", icon: "https://www.vectorlogo.zone/logos/streamlit/streamlit-icon.svg" },
+      { name: "Tailwind", icon: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" },
     ],
   },
   {
-    title: "Core Concepts",
+    title: "DATABASES & ANALYTICS",
     skills: [
-      { name: "DSA", icon: BrainCircuit },
-      { name: "Data Analytics", icon: LineChart },
-      { name: "Problem Solving", icon: Lightbulb },
+      { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "Pandas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+      { name: "NumPy", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+      { name: "Power BI", icon: "https://www.vectorlogo.zone/logos/microsoft_powerbi/microsoft_powerbi-icon.svg" },
+      { name: "MS Excel", icon: "https://www.vectorlogo.zone/logos/microsoft_excel/microsoft_excel-icon.svg" },
+    ],
+  },
+  {
+    title: "TOOLS & PLATFORMS",
+    skills: [
+      { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+      { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+      { name: "Postman", icon: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" },
+      { name: "Jupyter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" },
+      { name: "Anaconda", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/anaconda/anaconda-original.svg" },
     ],
   },
 ];
 
 const SkillsSection = () => (
-  <section id="skills">
+  <section id="skills" className="py-20 bg-background overflow-hidden border-t border-slate-100 dark:border-slate-800">
     <div className="section-container">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-12"
-      >
-        <h2 className="section-title">My <span className="gradient-text">Skills</span></h2>
-        <p className="section-subtitle">Technologies and tools I work with</p>
-      </motion.div>
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-80px" }}
-        className="grid md:grid-cols-3 gap-8"
-      >
-        {categories.map((cat) => (
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Technical Skills</h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {categories.map((cat, catIndex) => (
           <motion.div
             key={cat.title}
-            variants={item}
-            whileHover={{ y: -8, transition: { type: "spring", stiffness: 300 } }}
-            className="card-portfolio"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: catIndex * 0.1 }}
+            className="bg-white dark:bg-slate-900/50 rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-800 transition-all duration-300 hover:shadow-md"
           >
-            <h3 className="font-semibold text-foreground mb-6 text-lg">{cat.title}</h3>
-            <div className="space-y-4">
-              {cat.skills.map((s, si) => (
+            <h3 className="text-primary font-bold text-sm tracking-[0.2em] mb-10 opacity-80 uppercase">
+              {cat.title}
+            </h3>
+            
+            <div className="grid grid-cols-4 sm:grid-cols-5 gap-y-8 gap-x-2">
+              {cat.skills.map((skill) => (
                 <motion.div
-                  key={s.name}
-                  className="flex items-center gap-3 group cursor-default"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: si * 0.1 }}
-                  whileHover={{ x: 6 }}
+                  key={skill.name}
+                  className="flex flex-col items-center gap-2 group"
+                  whileHover={{ y: -3 }}
                 >
-                  <motion.div
-                    className="w-10 h-10 rounded-lg bg-primary-light flex items-center justify-center group-hover:bg-primary transition-colors duration-300"
-                    whileHover={{ rotate: 15, scale: 1.15 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
-                    <s.icon size={20} className="text-primary group-hover:text-primary-foreground transition-colors duration-300" />
-                  </motion.div>
-                  <span className="font-medium text-foreground group-hover:text-primary transition-colors duration-300">{s.name}</span>
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white dark:bg-slate-800 flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300 border border-slate-50 dark:border-slate-700 relative overflow-hidden">
+                    <img 
+                      src={skill.icon} 
+                      alt={skill.name} 
+                      className="w-7 h-7 md:w-8 md:h-8 object-contain group-hover:scale-110 transition-transform duration-300 relative z-10"
+                    />
+                  </div>
+                  <span className="text-[9px] md:text-[10px] font-semibold text-slate-500 dark:text-slate-400 text-center truncate w-full group-hover:text-primary transition-colors">
+                    {skill.name}
+                  </span>
                 </motion.div>
               ))}
             </div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </div>
   </section>
 );

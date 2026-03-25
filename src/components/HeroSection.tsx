@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Mail, Sparkles } from "lucide-react";
+import { ArrowDown, Download, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 import profilePhoto from "@/assets/kartake.jpg";
-
-const RESUME_URL = "https://drive.google.com/file/d/1Gz_sD3ZVQDz81fZ7sBv6edb1FTfOMNpy/view?usp=sharing";
+import resumePDF from "@/assets/karthik cv.pdf";
 
 const titles = ["Data Analyst", "Big Data Enthusiast", "Problem Solver", "Python Developer"];
 
@@ -61,7 +60,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-            className="shrink-0 relative group"
+            className="shrink-0 relative group md:order-2"
           >
             {/* Animated ring */}
             <motion.div
@@ -74,31 +73,22 @@ const HeroSection = () => {
               animate={{ rotate: -360 }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
             />
-            <div className="w-48 h-64 md:w-56 md:h-72 rounded-[2rem] overflow-hidden border-4 border-primary/20 shadow-xl relative group-hover:border-primary/50 transition-all duration-500">
+            <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl relative group-hover:border-primary/50 transition-all duration-500">
               <motion.img
                 src={profilePhoto}
                 alt="Karthik Buddala"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.4 }}
               />
             </div>
-            {/* Status badge */}
-            <motion.div
-              className="absolute -bottom-2 right-2 bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 1, type: "spring" }}
-            >
-              <Sparkles size={12} /> Open to Work
-            </motion.div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-center md:text-left"
+            className="text-center md:text-left md:order-1"
           >
             <motion.p
               className="text-primary font-semibold mb-2"
@@ -145,9 +135,8 @@ const HeroSection = () => {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href={RESUME_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={resumePDF}
+                download="Karthik_Budalla_CV.pdf"
                 className="btn-outline-primary flex items-center gap-2"
               >
                 <Download size={18} /> Download Resume
